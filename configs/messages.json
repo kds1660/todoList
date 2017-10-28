@@ -1,0 +1,13 @@
+{
+  "send": {
+    "loginFalse": "Not logged, check name/password",
+    "loginOk": "You logged",
+    "loginRegister": "User registered, login with new name/password",
+    "loginLogout" : "You logout",
+    "taskCreate" : "Add new task",
+    "taskDone" : "Task marked done",
+    "taskTodo" : "Task marked todo",
+    "taskDel":"Task deleted",
+    "taskEdit":"Task text changed"
+  }
+}

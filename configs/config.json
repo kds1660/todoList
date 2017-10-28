@@ -1,0 +1,12 @@
+{
+  "dbOptions": {
+    "host": "localhost",
+    "user": "root",
+    "password": "",
+    "database" : "list",
+    "dialect":"mysql"
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

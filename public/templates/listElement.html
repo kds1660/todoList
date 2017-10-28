@@ -1,0 +1,18 @@
+<li>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h1 class="panel-title">{{todos.date}}</h1>
+        </div>
+        <div class="panel-body"><span>{{todos.text}}</span></div>
+        <div class="panel-footer">
+            <div class="buttons" ng-if="!todos.executed">
+                <a class="editButton btn btn-success" ng-click="editTask($index)">Edit</a>
+                <a class="doneButton btn btn-info" ng-click="executeTask($index)">Done</a>
+            </div>
+            <div class="buttons" ng-if="todos.executed">
+                <a class="editButton btn btn-danger" ng-click="removeTask($index)">Delete</a>
+                <a class="doneButton btn btn-info" ng-click="restoreTask($index)">Restore</a>
+            </div>
+        </div>
+    </div>
+</li>

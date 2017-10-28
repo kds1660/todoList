@@ -1,0 +1,42 @@
+<div class="row">
+    <div id="actionPanel" class="col-sm-8">
+        <div class="actionPanel">
+            <fieldset>
+                <legend>Filter</legend>
+                <input type="text" class="filter" name="filter" ng-keyup="filterList(event)">
+                <a class="editButton btn btn-success" ng-click="sortList('text')">Sort by text</a>
+                <a class="editButton btn btn-success" ng-click="sortList('date')">Sort by date</a>
+            </fieldset>
+            <fieldset>
+                <legend>Add</legend>
+                <input id="task" type="text" name="addTask">
+                <a class="editButton btn btn-success" ng-click="addTask()">Add</a>
+            </fieldset>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div id="todoPanel" class="col-sm-5">
+        <fieldset>
+            <legend>TODO LIST</legend>
+            <ul>
+                <div class="repeated-item" ng-repeat="todos in list.todo track by $index">
+                    <list-element></list-element>
+                </div>
+            </ul>
+        </fieldset>
+    </div>
+
+
+    <div id="donePanel" class="col-sm-5">
+        <fieldset>
+            <legend>DONE LIST</legend>
+            <ul>
+                <div class="repeated-item" ng-repeat="todos in list.done track by $index">
+                    <list-element></list-element>
+                </div>
+            </ul>
+        </fieldset>
+    </div>
+
+</div>

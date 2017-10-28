@@ -1,0 +1,1 @@
+var listModule = angular.module('listModule', []);

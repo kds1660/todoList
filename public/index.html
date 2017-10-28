@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <base href="/">
+    <title>TodoList</title>
+    <link rel="stylesheet" href="css/vendors-css.min.css">
+    <link rel="stylesheet" href="css/app-css.min.css">
+    <script src="js/vendors-js.min.js" defer></script>
+    <script src="js/app-js.min.js" defer></script>
+</head>
+
+<body ng-app="todoListApp">
+<ui-view>
+    <div id="header">
+        <div ui-view="login"></div>
+    </div>
+    <div ui-view="list"></div>
+</ui-view>
+</body>
+
+</html>
