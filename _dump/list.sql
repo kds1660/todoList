@@ -19,7 +19,8 @@ SET time_zone = "+00:00";
 --
 -- База данных: `list`
 --
-
+CREATE DATABASE IF NOT EXISTS list;
+Use list;
 -- --------------------------------------------------------
 
 --
