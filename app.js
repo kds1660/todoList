@@ -1,13 +1,10 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
 var bodyParser = require('body-parser');
-var models = require('./modules/db/dbService');
 var loginRoute = require('./modules/routes/users');
 var taskRoute = require('./modules/routes/tasks');
 var passport = require('./modules/passport').passport;
 var session=require('express-session');
-var User = models.User;
 var app = express();
 
 
