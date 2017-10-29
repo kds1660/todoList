@@ -25,7 +25,7 @@ listModule.factory('listServices', ['$resource','$http', '$q', '$uibModal','mome
             return deferred.promise;
         },
         toLocalTime:function (date) {
-            return moment.utc(date).local().format('MMMM do YYYY, h:mm:ss a')
+            return moment.utc(date).local().format('LLLL')
         }
     }
 }]);
