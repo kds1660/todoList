@@ -3,7 +3,7 @@ loginModule.directive("loginElement", function () {
         restrict: "E",
         templateUrl: "templates/login.html",
         scope: false,
-        link: function (scope, elem, attrs) {
+        link: function (scope, elem) {
 
             elem[0].addEventListener('keyup', function (e) {
                 var key = e.which || e.keyCode;

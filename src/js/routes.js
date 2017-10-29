@@ -1,6 +1,6 @@
 angular.module('listRoutes', ['ui.router'])
-    .config(['$stateProvider', '$urlRouterProvider',
-        function ($stateProvider, $urlRouterProvider) {
+    .config(['$stateProvider', '$urlRouterProvider','$locationProvider',
+        function ($stateProvider, $urlRouterProvider,$locationProvider) {
             $stateProvider
                 .state('login', {
                     url: '/login',
@@ -29,5 +29,9 @@ angular.module('listRoutes', ['ui.router'])
                         }
                     }
                 });
+            $locationProvider.html5Mode({
+                enabled: true,
+                requireBase: false
+            });
             $urlRouterProvider.otherwise("/login");
         }]);

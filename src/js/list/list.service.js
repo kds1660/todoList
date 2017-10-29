@@ -16,7 +16,6 @@ listModule.factory('listServices', ['$resource','$http', '$q', '$uibModal','mome
                     template: response.data,
                     scope:$scope
                 }).result.then(function () {
-
                     deferred.resolve();
                 }, function () {
                     deferred.reject();

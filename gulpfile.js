@@ -39,11 +39,11 @@ gulp.task('app-css', function () {
         .pipe(gulp.dest('public/css/'));
 });
 
-gulp.task('app-js', function() {
+gulp.task('app-js', function () {
     gulp.src(jsFilesApp)
         .pipe(concat('app-js.min.js'))
-        //     .pipe(ngAnnotate())
-        //     .pipe(minifyJs())
+        .pipe(ngAnnotate())
+        .pipe(minifyJs())
         .pipe(gulp.dest('public/js/'))
 });
 
@@ -73,7 +73,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('default', ['clean'], function () {
-    var tasks = ['vendors-css','vendors-js','app-css','app-js'];
+    var tasks = ['vendors-css', 'vendors-js', 'app-css', 'app-js'];
 
     tasks.forEach(function (val) {
         gulp.start(val);

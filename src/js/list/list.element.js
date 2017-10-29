@@ -1,7 +1,7 @@
 listModule.directive("listElement", function () {
     return {
         restrict: "E",
-        templateUrl: "templates/ListElement.html",
+        templateUrl: "templates/listElement.html",
         scope: false
     }
 });

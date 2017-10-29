@@ -1,16 +1,19 @@
 <div class="row">
-    <div id="actionPanel" class="col-sm-8">
+    <div id="actionPanel" class="col-sm-4">
         <div class="actionPanel">
             <fieldset>
-                <legend>Filter</legend>
+                <legend>Filter/Sort</legend>
                 <input type="text" class="filter" name="filter" ng-keyup="filterList(event)">
-                <a class="editButton btn btn-success" ng-click="sortList('text')">Sort by text</a>
-                <a class="editButton btn btn-success" ng-click="sortList('date')">Sort by date</a>
+                <a class="sortButton btn btn-success" ng-click="sortList('text')">Sort by text</a>
+                <a class="sortButton btn btn-success" ng-click="sortList('date')">Sort by date</a>
             </fieldset>
+        </div>
+    </div>
+    <div id="actionPanel2" class="col-sm-2">
+        <div class="actionPanel">
             <fieldset>
-                <legend>Add</legend>
-                <input id="task" type="text" name="addTask">
-                <a class="editButton btn btn-success" ng-click="addTask()">Add</a>
+                <legend>Add task</legend>
+                <a class="addButton btn btn-success" ng-click="addTask()">Add</a>
             </fieldset>
         </div>
     </div>

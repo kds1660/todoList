@@ -55,20 +55,21 @@ listModule.controller('listController', ['$scope', '$rootScope', 'toastr', 'mome
         };
 
         $scope.addTask = function () {
-            var newTask = {
-                text: angular.element(document.querySelector('#task')).val(),
-                date: new Date()
+            $scope.editText = {
+                text: '',
+                date: new Date
             };
-            listServices.apiRequest.save(newTask).$promise.then(function (response) {
-                newTask.id = response.id;
-                newTask.date = listServices.toLocalTime(newTask.date);
-                $scope.list.todo.push(newTask);
-                angular.element(document.querySelector('#task')).val('');
-                toastr.success(response.message, 'Success');
-            }, function (response) {
-                toastr.error(response.data.message, 'Error');
+            listServices.editElement($scope).then(function () {
+                listServices.apiRequest.save($scope.editText).$promise.then(function (response) {
+                    $scope.editText.id = response.id;
+                    $scope.editText.date = listServices.toLocalTime($scope.editText.date);
+                    toastr.success(response.message, 'Success');
+                    $scope.list.todo.push($scope.editText);
+                }, function (response) {
+                    toastr.error(response.data.message, 'Error');
+                });
+            }, function () {
             });
-
         };
 
         $scope.editTask = function ($index) {

@@ -1,7 +1,7 @@
 "use strict";
 
 module.exports = function (sequelize, DataTypes) {
-    var Task = sequelize.define("Task",
+    var Task = sequelize.define("task",
         {
             user_id: DataTypes.INTEGER,
             text: DataTypes.STRING,

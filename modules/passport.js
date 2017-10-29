@@ -33,7 +33,6 @@ passport.use(new LocalStrategy({
 ));
 
 passport.serializeUser(function (user, done) {
-    console.log('serializeUser ' + user);
     done(null, user.id);
 });
 
@@ -41,7 +40,6 @@ passport.deserializeUser(function (id, done) {
     User.findById(id).then(function (user) {
 
         if (user) {
-            console.log('deserializeUser ' + user);
             done(null, user.get());
 
         } else {

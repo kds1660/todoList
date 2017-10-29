@@ -7,9 +7,6 @@ var passport = require('./modules/passport').passport;
 var session=require('express-session');
 var app = express();
 
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -24,7 +21,9 @@ app.use(passport.session());
 
 app.use('/api/tasks', taskRoute);
 app.use('/api/users', loginRoute);
-
+app.use('*',function (req,res) {
+        res.sendFile(path.join(__dirname, 'public/index.html'));
+    });
 
 app.listen(3000);
 module.exports = app;
