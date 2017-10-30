@@ -2,11 +2,7 @@ var passport = require('passport')
     , LocalStrategy = require('passport-local').Strategy;
 var User = require('./db/dbService').User;
 var bCrypt = require('bcrypt-nodejs');
-var isValidPassword = function (userpass, password) {
 
-    return bCrypt.compareSync(password, userpass);
-
-};
 passport.use(new LocalStrategy({
         usernameField: 'name',
         passwordField: 'password'
@@ -17,15 +13,15 @@ passport.use(new LocalStrategy({
                 name: name
             }
         }).then(function (user) {
+
             if (!user) {
                 return done(null, false, {message: 'Incorrect username.'});
             }
-            if (!isValidPassword(user.password, password)) {
 
+            if (!bCrypt.compareSync(password, user.password)) {
                 return done(null, false, {
                     message: 'Incorrect password.'
                 });
-
             }
             return done(null, user);
         })
@@ -41,11 +37,8 @@ passport.deserializeUser(function (id, done) {
 
         if (user) {
             done(null, user.get());
-
         } else {
-
             done(user.errors, null);
-
         }
 
     });

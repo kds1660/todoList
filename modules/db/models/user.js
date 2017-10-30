@@ -7,14 +7,6 @@ module.exports = function (sequelize, DataTypes) {
             password: DataTypes.STRING
         },
         {
-            instanceMethods: {
-                authenticate: function(value) {
-                    if (bcrypt.compareSync(value, this.password))
-                        return this;
-                    else
-                        return false;
-                }
-            },
             timestamps: false
         });
 

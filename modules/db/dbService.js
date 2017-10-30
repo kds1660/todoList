@@ -8,7 +8,8 @@ const sequelize = new Sequelize(
     {
         host: cfg.dbOptions.host,
         dialect: cfg.dbOptions.dialect,
-        operatorsAliases: false
+        operatorsAliases: false,
+        logging: false
     });
 
 db['User'] = sequelize.import('./models/user.js');

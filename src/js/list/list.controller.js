@@ -8,6 +8,7 @@ listModule.controller('listController', ['$scope', '$rootScope', 'toastr', 'mome
         listServices.apiRequest.get().$promise.then(function (response) {
             for (var i = 0; i < response.length; i++) {
                 response[i].date = listServices.toLocalTime(response[i].date);
+
                 if (response[i].executed) {
                     $scope.list.done.push(response[i]);
                 } else {

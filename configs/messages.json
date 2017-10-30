@@ -8,6 +8,7 @@
     "taskDone" : "Task marked done",
     "taskTodo" : "Task marked todo",
     "taskDel":"Task deleted",
-    "taskEdit":"Task text changed"
+    "taskEdit":"Task text changed",
+    "taskNull":"No enought data in task"
   }
 }

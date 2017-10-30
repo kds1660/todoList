@@ -6,7 +6,6 @@ var authCheck = require('./../authCheck');
 
 router
     .get('/', authCheck, function (req, res) {
-
         Task.findAll({where: {user_id: req.user.id}}).then(function (match) {
             return res.json(match.map(function (el) {
                 return {
@@ -19,10 +18,14 @@ router
         }).catch(function (error) {
             res.status(500).send({message: error.message});
         });
-
     })
 
-    .post('/', authCheck, function (req, res) {
+    .post('/', authCheck, function (req, res, next) {
+
+        if (!req.body.text || !req.body.date) {
+            return next();
+        }
+
         Task.create({
             user_id: req.user.id,
             text: req.body.text,
@@ -33,25 +36,39 @@ router
         }).catch(function (error) {
             res.status(500).send({message: error.message});
         });
-
+    }, function (req, res) {
+        res.status(400).send({message: msg.send.taskNull});
     })
 
     .post('/:id', authCheck, function (req, res) {
-        Task.update({executed: req.body.execute}, {where: {id: req.params.id}}).then(function (match) {
+
+        if (!req.body.hasOwnProperty('execute')) {
+            return next();
+
+        }
+
+        Task.update({executed: req.body.execute}, {where: {id: req.params.id}}).then(function () {
             return res.status(200).send({message: req.body.execute ? msg.send.taskDone : msg.send.taskTodo});
         }).catch(function (error) {
             res.status(500).send({message: error.message});
         });
-
+    }, function (req, res) {
+        res.status(400).send({message: msg.send.taskNull});
     })
 
     .put('/:id', authCheck, function (req, res) {
-        Task.update({text: req.body.text}, {where: {id: req.params.id}}).then(function (match) {
+
+        if (!req.body.text) {
+            return next();
+        }
+
+        Task.update({text: req.body.text}, {where: {id: req.params.id}}).then(function () {
             return res.status(200).send({message: msg.send.taskEdit});
         }).catch(function (error) {
             res.status(500).send({message: error.message});
         });
-
+    }, function (req, res) {
+        res.status(400).send({message: msg.send.taskNull});
     })
 
     .delete('/:id', authCheck, function (req, res) {

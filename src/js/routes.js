@@ -29,9 +29,11 @@ angular.module('listRoutes', ['ui.router'])
                         }
                     }
                 });
+
             $locationProvider.html5Mode({
                 enabled: true,
                 requireBase: false
             });
+
             $urlRouterProvider.otherwise("/login");
         }]);
